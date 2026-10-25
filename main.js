@@ -8,7 +8,7 @@ let page = 1;
 
 function create_request(page) {
     let params = new URLSearchParams({
-    limit: 5,
+    limit: 7,
     page: page
 });
 
