@@ -1,0 +1,30 @@
+
+#posts_list {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    list-style: none;
+}
+
+.posts_list_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: blanchedalmond;
+    padding: 0px 100px 0px 100px;
+    border-radius: 10px;
+}
+
+#download {
+    transform: translate(1125px);
+
+    padding: 10px 30px 10px 30px;
+    border-style: none;
+    border-radius:10px ;
+    background-color: rgb(219, 243, 162);
+}
+
+#download:hover {
+    background-color: rgb(206, 226, 159);;
+}

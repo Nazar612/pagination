@@ -1,7 +1,8 @@
 // ?per_page
 // ?page 
 const upload = document.querySelector("#download");
-const posts_list = document.querySelector("#posts_list")
+const posts_list = document.querySelector("#posts_list");
+const trigger = document.querySelector("#observer");
 const post_URL = "https://6acbba18ef37b15040782799.mockapi.io"
 let page = 1;
 
@@ -17,7 +18,7 @@ function create_request(page) {
     };
     return response.json()
 }).then((data) => {
-    markupHTML(data)
+    markup_data_HTML(data)
 });
 };
 
@@ -27,12 +28,25 @@ upload.addEventListener("click", (e) => {
     create_request(page)
 });
 
-function markupHTML(data) {
-    
+function markup_data_HTML(data) {
+
     const html = data.map(({id, body, title}) => {
         return `<li class="posts_list_item" id="${id}"><h2 class="posts_list_item_title">${title}</h2>
     <p class="posts_list_item_body">${body}</p></li>`
     }).join(" ");
 
-    posts_list.innerHTML = html
-}
+    posts_list.insertAdjacentHTML("beforeend", html)
+};
+
+// const interObserver = new IntersectionObserver((element) => {
+//     if(!element[0].isIntersecting) {
+//         return
+//     };
+//     interObserver.unobserve(trigger)
+//     page++;
+//     create_request(page)
+// }, {
+//     rootMargin:"0px 0px 500px 0px"
+// });
+
+// interObserver.observe(trigger)
